@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get_storage/get_storage.dart';
 import '../auth.dart';
 
 class LoginPage extends StatefulWidget {
@@ -22,29 +23,45 @@ class _LoginPageState extends State<LoginPage> {
   String? errorMessage = '';
   bool isLogin = true;
   var currentUser;
-
+  var gettoken;
+  final box = GetStorage();
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
 
   Future<void> signInWithEmailAndPassword() async {
     try {
-      await Auth().signInWithEmailAndPassword(
-        email: _controllerEmail.text,
-        password: _controllerPassword.text,
-      );
-      setState(() {
-        currentUser = Auth().currentUser!;
-      });
-
-      // Auth().currentUser?
-      print(Auth().currentUser!.refreshToken);
-      print("Saad");
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _controllerEmail.text, password: _controllerPassword.text);
+      var token = await credential.user!.getIdToken();
+      print(token);
+      box.write('tokenid', token);
     } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
     }
   }
+
+  // Future<void> signInWithEmailAndPassword() async {
+  //   try {
+  //     var googleCred = await Auth().signInWithEmailAndPassword(
+  //       email: _controllerEmail.text,
+  //       password: _controllerPassword.text,
+  //     );
+  //     // setState(() {
+  //     //   currentUser = Auth().currentUser!;
+  //     //   gettoken = Auth().currentUser!.getIdTokenResult();
+  //     // });
+  //     // Auth().currentUser?
+  //     print("Saad");
+  //   } on FirebaseAuthException catch (e) {
+  //     setState(() {
+  //       errorMessage = e.message;
+  //     });
+  //   }
+  // }
 
   Future<void> createUserWithEmailAndPassword() async {
     try {
