@@ -116,11 +116,23 @@ class NetworkUtils {
   dynamic postCustomers(var data) async {
     var requestPayload = {};
     requestPayload["name"] = data["name"];
+    requestPayload["address"] = data["address"];
+    requestPayload["email"] = data["email"];
+    requestPayload["poc_name"] = data["pocName"];
+    var uri = _host + 'customers'.toString();
+    final response = await _dio!.post(uri, data: json.encode(requestPayload));
+    return response;
+  }
+
+  dynamic deleteCustomer(var data) async {
+    var requestPayload = {};
+    requestPayload["name"] = data["name"];
     requestPayload["email"] = data["email"];
     requestPayload["poc_name"] = data["pocName"];
     requestPayload["address"] = data["address"];
-    var uri = _host + 'customers'.toString();
-    final response = await _dio!.post(uri, data: json.encode(requestPayload));
+    requestPayload["document_id"] = data["documentId"];
+    var uri = _host + 'customer'.toString();
+    final response = await _dio!.delete(uri, data: json.encode(requestPayload));
     return response;
   }
 }

@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:invoice_app/model/customer_model.dart';
@@ -49,6 +50,27 @@ class _CustomerPageState extends State<CustomerPage> {
       itemBuilder: (context, index) {
         final customer = customers[index];
 
+        void deleteCustomer(
+          String name,
+          String email,
+          String address,
+          String pocName,
+          String documentId,
+        ) {
+          dynamic data;
+          data = {
+            'name': name,
+            'email': email,
+            'address': address,
+            'pocName': pocName,
+            'documentId': documentId,
+          };
+
+          NetworkUtils('https://invoicing-kahstlylcq-oa.a.run.app/')
+              .deleteCustomer(data);
+          Get.toNamed('/get');
+        }
+
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,18 +100,26 @@ class _CustomerPageState extends State<CustomerPage> {
                 title: Text("Initials : ${customer.initials}"),
               ),
             ),
-            // Center(
-            //   child: Row(
-            //     mainAxisSize: MainAxisSize.min,
-            //     crossAxisAlignment: CrossAxisAlignment.center,
-            //     children: [
-            //       IconButton(
-            //           icon: const Icon(Icons.edit), onPressed: () => null),
-            //       IconButton(
-            //           icon: const Icon(Icons.delete), onPressed: () => null),
-            //     ],
-            //   ),
-            // ),
+            Center(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  IconButton(
+                      icon: const Icon(Icons.edit), onPressed: () => null),
+                  IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () {
+                        deleteCustomer(
+                            customer.name,
+                            customer.email,
+                            customer.address,
+                            customer.pocName,
+                            customer.documentId);
+                      }),
+                ],
+              ),
+            ),
           ],
         );
       });

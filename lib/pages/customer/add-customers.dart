@@ -17,12 +17,12 @@ class _AddCustomersState extends State<AddCustomers> {
   final _pocName = TextEditingController();
 
   void postCustomers(
-      String name, String email, String address, String pocName) {
+      String name, String address, String email, String pocName) {
     dynamic data;
     data = {
       'name': name,
-      'email': email,
       'address': address,
+      'email': email,
       'pocName': pocName,
     };
 
@@ -77,7 +77,7 @@ class _AddCustomersState extends State<AddCustomers> {
                   child: const Text("Add Customer"),
                   onPressed: () {
                     postCustomers(
-                        _name.text, _email.text, _pocName.text, _address.text);
+                        _name.text, _address.text, _email.text, _pocName.text);
                   },
                 ),
               ],
