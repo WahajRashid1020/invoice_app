@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:invoice_app/auth.dart';
 
@@ -77,20 +78,48 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: _title(),
         ),
-        body: ListView.builder(
-          itemCount:
-              transactionsData != null ? transactionsData['data']!.length : 0,
-          itemBuilder: (context, index) {
-            return Card(
-              margin: const EdgeInsets.all(10),
-              child: ListTile(
-                title: Text("Invoice Number : " +
-                    transactionsData['data'][index]['invoice_number']),
-                subtitle:
-                    Text("Date : " + transactionsData['data'][index]['date']),
+        body: Center(
+          child: Column(
+            children: [
+              Container(
+                child: _signOutButton(),
               ),
-            );
-          },
-        ));
+              Container(
+                child: ElevatedButton(
+                    onPressed: () => Get.toNamed('/get'),
+                    child: Text("Get Customers")),
+              ),
+              Container(
+                child: ElevatedButton(
+                    onPressed: () => Get.toNamed('/add'),
+                    child: Text("Add Customer")),
+              ),
+              Container(
+                child: ElevatedButton(
+                    onPressed: () => Get.toNamed('/profile'),
+                    child: Text("User Profile")),
+              ),
+            ],
+          ),
+        )
+
+        // ListView.builder(
+        //   itemCount:
+        //       transactionsData != null ? transactionsData['data']!.length : 0,
+        //   itemBuilder: (context, index) {
+        //     return Card(
+        //       margin: const EdgeInsets.all(10),
+        //       child: ListTile(
+        //         title: Text("Invoice Number : " +
+        //             transactionsData['data'][index]['invoice_number']),
+        //         subtitle:
+        //             Text("Date : " + transactionsData['data'][index]['date']),
+        //       ),
+        //     );
+
+        //   },
+        // )
+
+        );
   }
 }

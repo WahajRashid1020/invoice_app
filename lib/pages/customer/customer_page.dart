@@ -78,18 +78,18 @@ class _CustomerPageState extends State<CustomerPage> {
                 title: Text("Initials : ${customer.initials}"),
               ),
             ),
-            Center(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButton(
-                      icon: const Icon(Icons.edit), onPressed: () => null),
-                  IconButton(
-                      icon: const Icon(Icons.delete), onPressed: () => null),
-                ],
-              ),
-            ),
+            // Center(
+            //   child: Row(
+            //     mainAxisSize: MainAxisSize.min,
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: [
+            //       IconButton(
+            //           icon: const Icon(Icons.edit), onPressed: () => null),
+            //       IconButton(
+            //           icon: const Icon(Icons.delete), onPressed: () => null),
+            //     ],
+            //   ),
+            // ),
           ],
         );
       });

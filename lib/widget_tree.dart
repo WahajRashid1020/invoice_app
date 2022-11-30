@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:invoice_app/auth.dart';
+import 'package:invoice_app/pages/customer/add-customers.dart';
 import 'package:invoice_app/pages/customer/customer_page.dart';
+import 'package:invoice_app/pages/home_page.dart';
 import 'package:invoice_app/pages/login_register_page.dart';
 
 class WidgetTree extends StatefulWidget {
@@ -17,7 +19,7 @@ class _WidgetTreeState extends State<WidgetTree> {
       stream: Auth().authStateChanges,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return const CustomerPage();
+          return HomePage();
         } else {
           return const LoginPage();
         }

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:invoice_app/auth.dart';
@@ -27,20 +25,16 @@ class _UserPageState extends State<UserPage> {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _nameController = TextEditingController();
-    final TextEditingController _numberController = TextEditingController();
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _addressrController = TextEditingController();
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController numberController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController addressrController = TextEditingController();
 
-    print("user");
-    print(user);
-    print("user");
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text("User Profile"),
+        title: const Text("User Profile"),
       ),
-      // ignore: avoid_unnecessary_containers
       body: SafeArea(
         child: Column(
           children: [
@@ -61,7 +55,7 @@ class _UserPageState extends State<UserPage> {
               ),
               title: user?.displayName == ""
                   ? TextField(
-                      controller: _nameController,
+                      controller: nameController,
                       decoration: const InputDecoration(
                           isDense: true,
                           contentPadding:
@@ -71,12 +65,12 @@ class _UserPageState extends State<UserPage> {
                     )
                   : Text(
                       user?.displayName ?? "Display Name",
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                           color: Colors.red),
                     ),
-              subtitle: Text(
+              subtitle: const Text(
                 "Code Clan",
                 style: TextStyle(
                     fontSize: 20,
@@ -90,56 +84,7 @@ class _UserPageState extends State<UserPage> {
                 Container(
                     width: 170,
                     height: 100,
-                    padding: new EdgeInsets.all(5.0),
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        color: Colors.grey[350],
-                        elevation: 10,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            const ListTile(
-                              title: Text('Sonu Nigam',
-                                  style: TextStyle(
-                                      fontSize: 15.0, color: Colors.red)),
-                              subtitle: Text('Best of Sonu Nigam Music.',
-                                  style: TextStyle(fontSize: 10.0)),
-                            ),
-                          ],
-                        ))),
-                Container(
-                    width: 170,
-                    height: 100,
-                    padding: new EdgeInsets.all(5.0),
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        color: Colors.grey[350],
-                        elevation: 10,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            const ListTile(
-                              title: Text('Sonu Nigam',
-                                  style: TextStyle(
-                                      fontSize: 15.0, color: Colors.red)),
-                              subtitle: Text('Best of Sonu Nigam Music.',
-                                  style: TextStyle(fontSize: 10.0)),
-                            ),
-                          ],
-                        ))),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                    width: 170,
-                    height: 100,
-                    padding: new EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
@@ -155,7 +100,7 @@ class _UserPageState extends State<UserPage> {
                                     height: 40,
                                     width: 100,
                                     child: TextField(
-                                      controller: _numberController,
+                                      controller: numberController,
                                       decoration: const InputDecoration(
                                           isDense: true,
                                           contentPadding: EdgeInsets.symmetric(
@@ -167,19 +112,19 @@ class _UserPageState extends State<UserPage> {
                                           hintText: 'Enter Phone Number'),
                                     ))
                                 : ListTile(
-                                    title: Text('Phone Number',
+                                    title: const Text('Phone Number',
                                         style: TextStyle(
                                             fontSize: 15.0, color: Colors.red)),
                                     subtitle: Text(
                                         user?.phoneNumber ?? 'Phone Number',
-                                        style: TextStyle(fontSize: 10.0)),
+                                        style: const TextStyle(fontSize: 10.0)),
                                   ),
                           ],
                         ))),
                 Container(
                     width: 170,
                     height: 100,
-                    padding: new EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
@@ -194,7 +139,7 @@ class _UserPageState extends State<UserPage> {
                                     height: 40,
                                     width: 100,
                                     child: TextField(
-                                      controller: _emailController,
+                                      controller: emailController,
                                       decoration: const InputDecoration(
                                           isDense: true,
                                           contentPadding: EdgeInsets.symmetric(
@@ -206,11 +151,11 @@ class _UserPageState extends State<UserPage> {
                                           hintText: 'Enter Email'),
                                     ))
                                 : ListTile(
-                                    title: Text('Email',
+                                    title: const Text('Email',
                                         style: TextStyle(
                                             fontSize: 15.0, color: Colors.red)),
                                     subtitle: Text(user?.email ?? 'Email',
-                                        style: TextStyle(fontSize: 10.0)),
+                                        style: const TextStyle(fontSize: 10.0)),
                                   ),
                           ],
                         ))),
@@ -222,7 +167,7 @@ class _UserPageState extends State<UserPage> {
                 Container(
                     width: 350,
                     height: 100,
-                    padding: new EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
@@ -237,23 +182,23 @@ class _UserPageState extends State<UserPage> {
                                     height: 40,
                                     width: 100,
                                     child: TextField(
-                                      controller: _emailController,
+                                      controller: addressrController,
                                       decoration: const InputDecoration(
                                           isDense: true,
                                           contentPadding: EdgeInsets.symmetric(
                                               horizontal: 0, vertical: 0),
-                                          labelText: 'Email',
+                                          labelText: 'Address',
                                           labelStyle: TextStyle(
                                               fontSize: 15.0,
                                               color: Colors.red),
-                                          hintText: 'Enter Email'),
+                                          hintText: 'Enter Address'),
                                     ))
                                 : ListTile(
-                                    title: Text('Email',
+                                    title: const Text('Address',
                                         style: TextStyle(
                                             fontSize: 15.0, color: Colors.red)),
-                                    subtitle: Text(user?.email ?? 'Email',
-                                        style: TextStyle(fontSize: 10.0)),
+                                    subtitle: Text(user?.email ?? 'Adress',
+                                        style: const TextStyle(fontSize: 10.0)),
                                   ),
                           ],
                         ))),

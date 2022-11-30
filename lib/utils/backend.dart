@@ -112,4 +112,15 @@ class NetworkUtils {
     final response = await _dio!.get(uri);
     return response;
   }
+
+  dynamic postCustomers(var data) async {
+    var requestPayload = {};
+    requestPayload["name"] = data["name"];
+    requestPayload["email"] = data["email"];
+    requestPayload["poc_name"] = data["pocName"];
+    requestPayload["address"] = data["address"];
+    var uri = _host + 'customers'.toString();
+    final response = await _dio!.post(uri, data: json.encode(requestPayload));
+    return response;
+  }
 }
