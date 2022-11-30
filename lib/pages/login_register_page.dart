@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   String? errorMessage = '';
   bool isLogin = true;
   var currentUser;
-  var gettoken;
+
   final box = GetStorage();
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
@@ -33,8 +33,8 @@ class _LoginPageState extends State<LoginPage> {
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _controllerEmail.text, password: _controllerPassword.text);
       var token = await credential.user!.getIdToken();
-      print(token);
-      box.write('tokenid', token);
+
+      await box.write('tokenid', token);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -43,25 +43,6 @@ class _LoginPageState extends State<LoginPage> {
       }
     }
   }
-
-  // Future<void> signInWithEmailAndPassword() async {
-  //   try {
-  //     var googleCred = await Auth().signInWithEmailAndPassword(
-  //       email: _controllerEmail.text,
-  //       password: _controllerPassword.text,
-  //     );
-  //     // setState(() {
-  //     //   currentUser = Auth().currentUser!;
-  //     //   gettoken = Auth().currentUser!.getIdTokenResult();
-  //     // });
-  //     // Auth().currentUser?
-  //     print("Saad");
-  //   } on FirebaseAuthException catch (e) {
-  //     setState(() {
-  //       errorMessage = e.message;
-  //     });
-  //   }
-  // }
 
   Future<void> createUserWithEmailAndPassword() async {
     try {

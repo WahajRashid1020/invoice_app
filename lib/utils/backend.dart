@@ -30,14 +30,15 @@ class NetworkUtils {
   }
 
   void _setupLoggingInterceptor() async {
+    var token = box.read('tokenid');
     int maxCharactersPerLine = 200;
-    // Flutter 2
+
     _dio!.interceptors.add(
       InterceptorsWrapper(
           onRequest: (options, handler) async {
             Map<String, String>? headers = <String, String>{
               'Content-type': 'application/json',
-              'Authorization': 'Bearer ' + box.read('tokenid'),
+              'Authorization': 'Bearer ' + token,
             };
             options.headers = headers;
 
@@ -100,8 +101,15 @@ class NetworkUtils {
 
   dynamic getSingleTransactions() async {
     // var userId = AuthUtils.getUserId()!;
-    var uri = 'transactions';
+    var uri = '${_host}transactions';
     final response = await _dio!.get(uri);
     return response.data;
+  }
+
+  dynamic getCustomers() async {
+    // var userId = AuthUtils.getUserId()!;
+    var uri = _host + 'customers'.toString();
+    final response = await _dio!.get(uri);
+    return response;
   }
 }
