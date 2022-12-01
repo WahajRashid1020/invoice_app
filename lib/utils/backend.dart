@@ -124,6 +124,18 @@ class NetworkUtils {
     return response;
   }
 
+  dynamic updateCustomers(var data) async {
+    var requestPayload = {};
+    requestPayload["name"] = data["name"];
+    requestPayload["address"] = data["address"];
+    requestPayload["email"] = data["email"];
+    requestPayload["poc_name"] = data["pocName"];
+    requestPayload["document_id"] = data["documentId"];
+    var uri = _host + 'customer'.toString();
+    final response = await _dio!.put(uri, data: json.encode(requestPayload));
+    return response;
+  }
+
   dynamic deleteCustomer(var data) async {
     var requestPayload = {};
     requestPayload["name"] = data["name"];

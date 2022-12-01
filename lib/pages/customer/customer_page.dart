@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:invoice_app/model/customer_model.dart';
+import 'package:invoice_app/pages/customer/update_customers.dart';
 
 import '../../utils/backend.dart';
 
@@ -112,7 +113,15 @@ class _CustomerPageState extends State<CustomerPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
-                      icon: const Icon(Icons.edit), onPressed: () => null),
+                    icon: const Icon(Icons.edit),
+                    onPressed: () => Get.to(UpdateCustomers(), arguments: [
+                      "${customer.name}",
+                      "${customer.address}",
+                      "${customer.email}",
+                      "${customer.pocName}",
+                      "${customer.documentId}"
+                    ]),
+                  ),
                   IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () {
