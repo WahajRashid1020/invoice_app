@@ -39,7 +39,7 @@ class _UpdateCustomersState extends State<UpdateCustomers> {
             Card(
               child: TextField(
                 controller: editName,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Name",
                 ),
               ),
@@ -47,7 +47,7 @@ class _UpdateCustomersState extends State<UpdateCustomers> {
             Card(
               child: TextField(
                 controller: editEmail,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Email",
                 ),
               ),
@@ -55,7 +55,7 @@ class _UpdateCustomersState extends State<UpdateCustomers> {
             Card(
               child: TextField(
                 controller: editAddress,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Address",
                 ),
               ),
@@ -63,7 +63,7 @@ class _UpdateCustomersState extends State<UpdateCustomers> {
             Card(
               child: TextField(
                 controller: editpocName,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "POC Name",
                 ),
               ),
