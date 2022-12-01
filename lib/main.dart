@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             transition: Transition.zoom),
         GetPage(
             name: '/add',
-            page: () => AddCustomers(),
+            page: () => const AddCustomers(),
             transition: Transition.zoom),
         GetPage(
             name: '/profile',
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
             transition: Transition.zoom),
         GetPage(
             name: '/get',
-            page: () => CustomerPage(),
+            page: () => const CustomerPage(),
             transition: Transition.zoom),
       ],
       debugShowCheckedModeBanner: false,

@@ -15,25 +15,28 @@ class CustomerPage extends StatefulWidget {
 class _CustomerPageState extends State<CustomerPage> {
   final box = GetStorage();
 
-  static Future<List<Customer>> customersFuture = getCustomer();
-  @override
   static Future<List<Customer>> getCustomer() async {
-    var customersData =
+    dynamic customersData =
         await NetworkUtils('https://invoicing-kahstlylcq-oa.a.run.app/')
             .getCustomers();
+    print(customersData);
 
-    final List<dynamic> data = customersData.data["data"] ?? [];
+    final List<dynamic> data = customersData.data["data"];
     return data.map((dynamic e) => Customer.fromJson(e)).toList();
   }
 
+  static Future<List<Customer>> customersFuture = getCustomer();
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      customersFuture = getCustomer();
+    });
     return Scaffold(
       appBar: AppBar(title: const Text("Customers")),
       body: Center(
         child: FutureBuilder<List<Customer>>(
             future: customersFuture,
-            builder: (context, snapshot) {
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
                 final customers = snapshot.data!;
                 return buildCustomer(customers);
@@ -56,7 +59,7 @@ class _CustomerPageState extends State<CustomerPage> {
           String address,
           String pocName,
           String documentId,
-        ) {
+        ) async {
           dynamic data;
           data = {
             'name': name,
@@ -66,9 +69,12 @@ class _CustomerPageState extends State<CustomerPage> {
             'documentId': documentId,
           };
 
-          NetworkUtils('https://invoicing-kahstlylcq-oa.a.run.app/')
+          await NetworkUtils('https://invoicing-kahstlylcq-oa.a.run.app/')
               .deleteCustomer(data);
-          Get.toNamed('/get');
+          setState(() {
+            customersFuture = getCustomer();
+          });
+          // Get.toNamed('/');
         }
 
         return Column(

@@ -15,9 +15,8 @@ class _AddCustomersState extends State<AddCustomers> {
   final _email = TextEditingController();
   final _address = TextEditingController();
   final _pocName = TextEditingController();
-
   void postCustomers(
-      String name, String address, String email, String pocName) {
+      String name, String address, String email, String pocName) async {
     dynamic data;
     data = {
       'name': name,
@@ -25,9 +24,9 @@ class _AddCustomersState extends State<AddCustomers> {
       'email': email,
       'pocName': pocName,
     };
-
-    NetworkUtils('https://invoicing-kahstlylcq-oa.a.run.app/')
+    await NetworkUtils('https://invoicing-kahstlylcq-oa.a.run.app/')
         .postCustomers(data);
+
     Get.toNamed('/get');
   }
 
