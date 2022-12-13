@@ -28,6 +28,7 @@ class _addCustomerState extends State<addCustomer> {
     final _height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(children: [
         Padding(
           padding: const EdgeInsets.only(top: 80, left: 20, right: 20),
@@ -212,7 +213,7 @@ class _addCustomerState extends State<addCustomer> {
               color: Color.fromRGBO(87, 70, 123, 1),
             ),
             height: 50,
-            width: _width * 0.88,
+            width: _width * 0.82,
             child: const ElevatedButton(
                 onPressed: null,
                 child: Text(

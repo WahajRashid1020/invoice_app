@@ -270,7 +270,7 @@ class _addInvoiceState extends State<addInvoice> {
                 color: Color.fromRGBO(87, 70, 123, 1),
               ),
               height: 50,
-              width: _width * 0.88,
+              width: _width * 0.82,
               child: ElevatedButton(
                   onPressed: null,
                   child: Text(
