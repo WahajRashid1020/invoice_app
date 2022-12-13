@@ -131,7 +131,7 @@ class _addCustomerState extends State<addCustomer> {
                       child: const TextField(
                         cursorColor: Colors.black,
                         decoration: InputDecoration(
-                          hintText: 'Company Name ',
+                          hintText: 'Email',
                           hintStyle: TextStyle(
                               fontSize: 12, fontWeight: FontWeight.w200),
                           focusedBorder: UnderlineInputBorder(
@@ -158,7 +158,7 @@ class _addCustomerState extends State<addCustomer> {
                       child: const TextField(
                         cursorColor: Colors.black,
                         decoration: InputDecoration(
-                          hintText: 'Payment Method ',
+                          hintText: 'Address',
                           hintStyle: TextStyle(
                               fontSize: 12, fontWeight: FontWeight.w200),
                           focusedBorder: UnderlineInputBorder(
@@ -172,8 +172,61 @@ class _addCustomerState extends State<addCustomer> {
           ),
         ),
         const SizedBox(
-          height: 20,
+          height: 30,
         ),
+        Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Row(
+            children: [
+              Column(
+                children: [
+                  SizedBox(
+                      width: _width * 0.88,
+                      child: const TextField(
+                        cursorColor: Colors.black,
+                        decoration: InputDecoration(
+                          hintText: 'POC Name',
+                          hintStyle: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w200),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                        ),
+                      )),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const Spacer(),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40.0),
+          child: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(4),
+                topRight: Radius.circular(4),
+                bottomLeft: Radius.circular(4),
+                bottomRight: Radius.circular(4),
+              ),
+              color: Color.fromRGBO(87, 70, 123, 1),
+            ),
+            height: 50,
+            width: _width * 0.88,
+            child: const ElevatedButton(
+                onPressed: null,
+                child: Text(
+                  'SUBMIT',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                    fontFamily: 'Inter',
+                    fontSize: 24,
+                    fontWeight: FontWeight.normal,
+                  ),
+                )),
+          ),
+        )
       ]),
       bottomNavigationBar: bottomBar(
         scaffoldKey: scaffoldKey,
