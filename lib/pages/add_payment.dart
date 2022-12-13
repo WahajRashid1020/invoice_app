@@ -258,6 +258,35 @@ class _addPaymentState extends State<addPayment> {
                   ])
                 ]),
           ),
+          Spacer(),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 40.0),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(4),
+                  topRight: Radius.circular(4),
+                  bottomLeft: Radius.circular(4),
+                  bottomRight: Radius.circular(4),
+                ),
+                color: Color.fromRGBO(87, 70, 123, 1),
+              ),
+              height: 50,
+              width: _width * 0.88,
+              child: ElevatedButton(
+                  onPressed: null,
+                  child: Text(
+                    'SUBMIT',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Inter',
+                      fontSize: 24,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  )),
+            ),
+          )
         ],
       ),
       bottomNavigationBar: bottomBar(
