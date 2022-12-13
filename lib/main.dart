@@ -6,6 +6,8 @@ import 'package:get_storage/get_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:get/get.dart';
 
+Color appPrimaryColor = const Color.fromRGBO(87, 70, 123, 1);
+
 Future<void> main() async {
   await Hive.initFlutter();
   await Hive.openBox('');
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primaryColor: const Color.fromRGBO(87, 70, 123, 1),
       ),
       home: const onboarding(),
     );

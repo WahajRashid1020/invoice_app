@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:invoice_app/pages/add_customer.dart';
 import 'package:invoice_app/pages/add_invoice.dart';
 import 'package:invoice_app/pages/add_payment.dart';
+import 'package:invoice_app/pages/add_project.dart';
 import 'package:invoice_app/pages/home.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:invoice_app/pages/transaction.dart';
@@ -84,7 +85,7 @@ class _floatingActionButtonState extends State<floatingActionButton> {
                 value: 4,
                 child: InkWell(
                   onTap: () {
-                    Get.to(addInvoice());
+                    Get.to(addProject());
                   },
                   child: Text(
                     'Add New Project',

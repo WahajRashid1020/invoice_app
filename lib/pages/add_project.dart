@@ -13,14 +13,14 @@ import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 import '../widgets/floatingActionButton.dart';
 
-class addPayment extends StatefulWidget {
-  const addPayment({super.key});
+class addProject extends StatefulWidget {
+  const addProject({super.key});
 
   @override
-  State<addPayment> createState() => _addPaymentState();
+  State<addProject> createState() => _addProjectState();
 }
 
-class _addPaymentState extends State<addPayment> {
+class _addProjectState extends State<addProject> {
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _addPaymentState extends State<addPayment> {
                 Column(
                   children: const [
                     Text(
-                      'Add Payment',
+                      'Add Project',
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         color: Color.fromRGBO(0, 0, 0, 1),
@@ -73,30 +73,6 @@ class _addPaymentState extends State<addPayment> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Row(
-              children: [
-                Column(
-                  children: const [
-                    Text(
-                      'Invoice # SI-SF-281122-004 ',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        color: Color.fromRGBO(94, 63, 190, 1),
-                        fontFamily: 'Inter',
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
             child: Row(children: [
               Column(
                 children: const [],
@@ -121,37 +97,6 @@ class _addPaymentState extends State<addPayment> {
             ]),
           ),
           const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Row(
-              children: [],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Row(children: [
-              Column(
-                children: [
-                  SizedBox(
-                      width: _width * 0.88,
-                      child: TextField(
-                        cursorColor: Colors.black,
-                        decoration: InputDecoration(
-                          hintText: 'Value',
-                          hintStyle: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w200),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
-                        ),
-                      )),
-                ],
-              ),
-            ]),
-          ),
-          const SizedBox(
             height: 40,
           ),
           Container(
@@ -160,13 +105,10 @@ class _addPaymentState extends State<addPayment> {
                 headingRowColor: MaterialStateColor.resolveWith(
                   (states) => Color.fromRGBO(240, 240, 240, 1),
                 ),
-                columnSpacing: 25,
+                columnSpacing: 50,
                 columns: [
                   const DataColumn(
                     label: Text('Title'),
-                  ),
-                  const DataColumn(
-                    label: Text('Value'),
                   ),
                   const DataColumn(
                     label: Text('Action '),
@@ -175,12 +117,8 @@ class _addPaymentState extends State<addPayment> {
                 dataRowHeight: 80,
                 rows: [
                   DataRow(cells: [
-                    DataCell(Text('Bank')),
-                    DataCell(Padding(
-                      padding: EdgeInsets.only(top: 0.0),
-                      child: Text(
-                          'Saad Irfan\nStandard Chartered Bank,\nAccount No.: 01526374301	'),
-                    )),
+                    DataCell(Text('First Project')),
+
                     DataCell(
                       Padding(
                         padding: const EdgeInsets.only(top: 30.0),

@@ -228,31 +228,129 @@ class _addInvoiceState extends State<addInvoice> {
                 headingRowColor: MaterialStateColor.resolveWith(
                   (states) => Color.fromRGBO(240, 240, 240, 1),
                 ),
-                columnSpacing: 30,
+                columnSpacing: 20,
                 columns: [
                   const DataColumn(
-                    label: Text('Item'),
+                    label: Text('Name'),
                   ),
                   const DataColumn(
-                    label: Text('Qty'),
+                    label: Text('Email'),
                   ),
                   const DataColumn(
-                    label: Text('\$Unit '),
+                    label: Text('Address'),
                   ),
                   const DataColumn(
-                    label: Text('Total'),
+                    label: Text('POC'),
                   ),
                   const DataColumn(
-                    label: Text(''),
+                    label: Text('Action'),
                   ),
                 ],
+                dataRowHeight: 80,
                 rows: [
-                  const DataRow(cells: [
-                    DataCell(Text('Name')),
-                    DataCell(Text('0')),
-                    DataCell(Text('0')),
-                    DataCell(Text('0')),
-                    DataCell(Icon(Icons.edit)),
+                  DataRow(cells: [
+                    DataCell(
+                      Text(
+                        'Akram Khan	',
+                        style: TextStyle(fontSize: 13),
+                      ),
+                    ),
+                    DataCell(Text(
+                      'akramkhan\n@gmail.com',
+                      style: TextStyle(fontSize: 13),
+                    )),
+                    DataCell(Text(
+                      'Block 5 \nClifton 100 Karachi',
+                      style: TextStyle(fontSize: 13),
+                    )),
+                    DataCell(Text(
+                      'Check',
+                      style: TextStyle(fontSize: 13),
+                    )),
+                    DataCell(
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30.0),
+                        child: Row(children: [
+                          Column(
+                            children: [
+                              InkWell(
+                                onTap: () => {},
+                                child: Icon(
+                                  Icons.edit,
+                                  size: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: _width * 0.04,
+                          ),
+                          Column(
+                            children: [
+                              InkWell(
+                                onTap: () => {},
+                                child: Icon(
+                                  Icons.delete,
+                                  size: 20,
+                                ),
+                              ),
+                            ],
+                          )
+                        ]),
+                      ),
+                    ),
+                  ]),
+                  DataRow(cells: [
+                    DataCell(
+                      Text(
+                        'Akram Khan	',
+                        style: TextStyle(fontSize: 13),
+                      ),
+                    ),
+                    DataCell(Text(
+                      'akramkhan\n@gmail.com',
+                      style: TextStyle(fontSize: 13),
+                    )),
+                    DataCell(Text(
+                      'Block 5 \nClifton 100 Karachi',
+                      style: TextStyle(fontSize: 13),
+                    )),
+                    DataCell(Text(
+                      'Check',
+                      style: TextStyle(fontSize: 13),
+                    )),
+                    DataCell(
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30.0),
+                        child: Row(children: [
+                          Column(
+                            children: [
+                              InkWell(
+                                onTap: () => {},
+                                child: Icon(
+                                  Icons.edit,
+                                  size: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: _width * 0.04,
+                          ),
+                          Column(
+                            children: [
+                              InkWell(
+                                onTap: () => {},
+                                child: Icon(
+                                  Icons.delete,
+                                  size: 20,
+                                ),
+                              ),
+                            ],
+                          )
+                        ]),
+                      ),
+                    ),
                   ])
                 ]),
           ),
@@ -272,7 +370,12 @@ class _addInvoiceState extends State<addInvoice> {
               height: 50,
               width: _width * 0.82,
               child: ElevatedButton(
-                  onPressed: null,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromRGBO(87, 70, 123, 1),
+                  ),
+                  onPressed: () {
+                    Get.to(HomePage());
+                  },
                   child: Text(
                     'SUBMIT',
                     textAlign: TextAlign.left,
