@@ -43,6 +43,12 @@ dependencies:
   get_storage: ^2.0.3
   json_annotation: ^4.0.1
   http: ^0.13.4
+  introduction_screen: ^2.1.0
+  hive_flutter: ^1.1.0
+  animated_bottom_navigation_bar: ^1.1.0
+  syncfusion_flutter_datagrid: ^20.3.60
+  floating_bottom_bar: ^0.0.1
+  focused_menu: ^1.0.5
 
 dev_dependencies:
   flutter_test:
@@ -68,8 +74,16 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/onboarding.png
+    - assets/Credit card_light.png
+    - assets/Folders_light.png
+    - assets/Group_light.png
+    - assets/User_light.png
+    - assets/Subtract.png
+    - assets/Figpie.png
+    
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -83,12 +97,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Inter-Bold.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
+        - asset: assets/fonts/Inter-Regular.ttf
+   
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
