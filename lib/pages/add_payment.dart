@@ -154,69 +154,6 @@ class _addPaymentState extends State<addPayment> {
           const SizedBox(
             height: 40,
           ),
-          Container(
-            width: _width * 1,
-            child: DataTable(
-                headingRowColor: MaterialStateColor.resolveWith(
-                  (states) => Color.fromRGBO(240, 240, 240, 1),
-                ),
-                columnSpacing: 25,
-                columns: [
-                  const DataColumn(
-                    label: Text('Title'),
-                  ),
-                  const DataColumn(
-                    label: Text('Value'),
-                  ),
-                  const DataColumn(
-                    label: Text('Action '),
-                  ),
-                ],
-                dataRowHeight: 80,
-                rows: [
-                  DataRow(cells: [
-                    DataCell(Text('Bank')),
-                    DataCell(Padding(
-                      padding: EdgeInsets.only(top: 0.0),
-                      child: Text(
-                          'Saad Irfan\nStandard Chartered Bank,\nAccount No.: 01526374301	'),
-                    )),
-                    DataCell(
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0),
-                        child: Row(children: [
-                          Column(
-                            children: [
-                              InkWell(
-                                onTap: () => {},
-                                child: Icon(
-                                  Icons.edit,
-                                  size: 20,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: _width * 0.04,
-                          ),
-                          Column(
-                            children: [
-                              InkWell(
-                                onTap: () => {},
-                                child: Icon(
-                                  Icons.delete,
-                                  size: 20,
-                                ),
-                              ),
-                            ],
-                          )
-                        ]),
-                      ),
-                    ),
-                    // DataCell(Icon(Icons.delete)),
-                  ])
-                ]),
-          ),
           Spacer(),
           Padding(
             padding: const EdgeInsets.only(bottom: 40.0),
