@@ -1,6 +1,4 @@
-# invoice_app
-
-A new Flutter project.
+This a mobile web app which can be a access on web as well https://invoicebuilder.netlify.app/
 
 ## Getting Started
 
